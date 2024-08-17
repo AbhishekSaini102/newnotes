@@ -14,4 +14,3 @@ A full-stack notes application built with Node.js, Express.js, MongoDB, Redis, R
 
 - **Backend**: Node.js, Express.js, MongoDB, Redis
 - **Frontend**: React, Redux, Tailwind CSS
-

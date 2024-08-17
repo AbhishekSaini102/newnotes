@@ -8,46 +8,63 @@ const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      required: true,
+      required: [true, "Username is required"],
+      unique: true,
+      lowercase: true,
+      trim: true,
+      // index: true,
+      minlength: [3, "Username must be at least 3 characters long"],
+    },
+    email: {
+      type: String,
+      match: [/^\S+@\S+\.\S+$/, "Please use a valid email address"],
       unique: true,
       lowercase: true,
       trim: true,
       index: true,
     },
-    email: {
-      type: String,
-      required: true,
-      match: /.+\@.+\..+/,
-      unique: true,
-      lowercase: true,
-      trim: true,
-    },
     password: {
       type: String,
       required: [true, "Password is required"],
       trim: true,
+      minlength: [6, "Password must be at least 6 characters long"],
     },
     fullName: {
       type: String,
       required: true,
       trim: true,
       index: true,
+      minlength: 3,
     },
     avatar: {
       type: String,
-      required: true,
+      // required: true,
       default: Default_Image,
     },
-    notes: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Note",
-      },
-    ],
+    refreshToken: {
+      type: String,
+      default: "",
+    },
+    // notes: [
+    //   {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "Note",
+    //   },
+    // ],
+    // tags: [
+    //   {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "Tag",
+    //   },
+    // ],
     // Additional fields if necessary
   },
+  // { timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } }
   { timestamps: true }
 );
+
+// Indexing
+userSchema.index({ email: 1 });
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {

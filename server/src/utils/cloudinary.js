@@ -2,6 +2,19 @@ import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
 // import path from "path";
 import util from "util";
+import dotenv from "dotenv";
+
+// Load environment variables
+dotenv.config();
+
+// Cloudinary configuration
+const { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } =
+  process.env;
+if (!CLOUDINARY_CLOUD_NAME || !CLOUDINARY_API_KEY || !CLOUDINARY_API_SECRET) {
+  throw new Error(
+    "Cloudinary credentials are missing. Please set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET in your environment."
+  );
+}
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

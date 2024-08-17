@@ -42,11 +42,16 @@ const noteSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    createdDate: {
-      type: Date,
-      default: Date.now,
+    folder: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Folder",
+      default: null,
     },
     isArchived: {
+      type: Boolean,
+      default: false,
+    },
+    isDeleted: {
       type: Boolean,
       default: false,
     },
@@ -57,6 +62,16 @@ const noteSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+// Indexing
+noteSchema.index({ title: "text", content: "text" });
+noteSchema.index({ user: 1, folder: 1 });
+
+// Automatically update the `updatedAt` field
+noteSchema.pre("save", function (next) {
+  this.updatedAt = Date.now();
+  next();
+});
 
 const Note = mongoose.model("Note", noteSchema);
 export default Note;
