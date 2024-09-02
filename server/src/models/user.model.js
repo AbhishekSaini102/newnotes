@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       trim: true,
       index: true,
+      required: [true, "Email is required"],
     },
     password: {
       type: String,
@@ -44,6 +45,10 @@ const userSchema = new mongoose.Schema(
     refreshToken: {
       type: String,
       default: "",
+    },
+    refreshTokenExpiry: {
+      type: Date,
+      default: null,
     },
     // notes: [
     //   {
