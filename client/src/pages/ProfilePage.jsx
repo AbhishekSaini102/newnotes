@@ -11,7 +11,7 @@ const ProfilePage = () => {
       {user && (
         <div>
           <img
-            src={user.avatar || "/default-avatar.png"}
+            src={user.avatar}
             alt="User Avatar"
             className="w-20 h-20 rounded-full"
           />

@@ -8,14 +8,48 @@ export default {
         "custom-blue": "#1DA1F2",
         "custom-red": "#E0245E",
         // "custom-white": "#F5F8FA",
+        "custom-gray": "#333333",
+        "custom-black": "#444444",
+        "custom-stone": "#777777",
+        "custom-stone-light": "#999999",
+        "newnotes-sidebar-light": "#f9f9f9",
+        "newnotes-sidebar-dark": "#222222",
+        "apple-notes-sidebar-light": "#f2f2f7",
+        "custom-light-gray": "##f5f5f5",
+        "custom-light-gray-hover": "#e0e0e0",
       },
       spacing: {
         custom: "1380px",
+      },
+      height: {
+        custom: "92%",
+      },
+      transitionDuration: {
+        700: "700ms",
+      },
+      width: {
+        "custom-width": "16.25rem",
+        "custom-width-full": "26rem",
       },
     },
   },
   plugins: [],
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

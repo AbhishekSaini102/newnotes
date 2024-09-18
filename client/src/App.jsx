@@ -30,8 +30,6 @@
 
 // export default App;
 
-
-
 // import { useState, useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { Outlet } from "react-router-dom";
@@ -72,7 +70,6 @@
 // }
 
 // export default App;
-
 
 // import { useState, useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
@@ -119,22 +116,62 @@
 
 // export default App;
 
+// import { useState, useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { Outlet } from "react-router-dom";
+// import Header from "./components/Header.jsx";
+// import { fetchCurrentUser } from "./store/authSlice.js";
+// import "./App.css";
+// // import SideBar from "./components/SideBar/SideBar.jsx";
 
+// function App() {
+//   const [loading, setLoading] = useState(true);
+//   const dispatch = useDispatch();
+//   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
+//   useEffect(() => {
+//     // Fetch current user data if authenticated
+//     if (isAuthenticated) {
+//       dispatch(fetchCurrentUser())
+//         .unwrap()
+//         .catch((error) => {
+//           console.error("Error fetching current user:", error);
+//         })
+//         .finally(() => setLoading(false));
+//     } else {
+//       // If not authenticated, just stop loading
+//       setLoading(false);
+//     }
+//   }, [dispatch, isAuthenticated]);
+
+//   if (loading) {
+//     return <div>Loading...</div>; // Optionally, show a loading spinner or message
+//   }
+
+//   return (
+//     <div>
+//       <Header />
+//       <Outlet />
+//       {/* <SideBar /> */}
+//     </div>
+//   );
+// }
+
+// export default App;
 
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import { fetchCurrentUser } from "./store/authSlice.js";
-import "./App.css";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  
 
   useEffect(() => {
-    // Fetch current user data if authenticated
     if (isAuthenticated) {
       dispatch(fetchCurrentUser())
         .unwrap()
@@ -143,21 +180,28 @@ function App() {
         })
         .finally(() => setLoading(false));
     } else {
-      // If not authenticated, just stop loading
-      setLoading(false);  
+      setLoading(false);
     }
   }, [dispatch, isAuthenticated]);
 
-  // if (loading) {
-  //   return <div>Loading...</div>; // Optionally, show a loading spinner or message
-  // }
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        Loading...
+      </div>
+    );
+  }
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <Outlet />
+      <main className="flex-grow overflow-auto">
+        <Outlet />
+      </main>
     </div>
   );
 }
 
 export default App;
+
+

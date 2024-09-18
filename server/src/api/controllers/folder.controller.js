@@ -18,163 +18,7 @@ import mongoose from "mongoose";
 //     throw new ApiError(400, "Folder with this name already exists");
 //   }
 
-//   // Convert parent to ObjectId if provided
-//   let parentId = null;
-//   if (parent) {
-//     if (!mongoose.Types.ObjectId.isValid(parent)) {
-//       throw new ApiError(400, "Invalid parent folder ID");
-//     }
-//     parentId = new mongoose.Types.ObjectId(parent);
-//   }
-
-//   // Create folder object
-//   const folder = new Folder({
-//     name,
-//     // parent: parent ? mongoose.Types.ObjectId(parent) : null,
-//     parent: parentId ? mongoose.Types.ObjectId(parentId) : null,
-//     user: req.user._id,
-//     ancestors: parent ? [mongoose.Types.ObjectId(parent)] : [],
-//   });
-
-//   // Save folder to database
-//   const createdFolder = await folder.save();
-
-//   if (!createdFolder) {
-//     throw new ApiError(500, "Something went wrong while creating the folder");
-//   }
-
-//   return res
-//     .status(201)
-//     .json(
-//       new ApiResponse(201, "Folder created successfully", { createdFolder })
-//     );
-// });
-
-// const createFolder = asyncHandler(async (req, res) => {
-//   const { name, parent = null } = req.body;
-
-//   // Validate required fields
-//   if (!name) {
-//     throw new ApiError(400, "Folder name is required");
-//   }
-
-//   // Check for duplicate folder
-//   const existingFolder = await Folder.findOne({ name, user: req.user._id });
-//   if (existingFolder) {
-//     throw new ApiError(400, "Folder with this name already exists");
-//   }
-
-//   // Convert parent to ObjectId if provided, otherwise use user's ID
-//   let parentId = null;
-//   if (parent) {
-//     if (!mongoose.Types.ObjectId.isValid(parent)) {
-//       throw new ApiError(400, "Invalid parent folder ID");
-//     }
-//     parentId = new mongoose.Types.ObjectId(parent);
-//   } else {
-//     parentId = req.user._id;
-//   }
-
-//   // Create folder object
-//   const folder = new Folder({
-//     name,
-//     parent: parentId,
-//     user: req.user._id,
-//     ancestors: parentId ? [parentId] : [],
-//   });
-
-//   // Save folder to database
-//   const createdFolder = await folder.save();
-
-//   if (!createdFolder) {
-//     throw new ApiError(500, "Something went wrong while creating the folder");
-//   }
-
-//   // Convert ObjectIds to strings for the response
-//   const responseFolder = {
-//     _id: createdFolder._id.toString(),
-//     name: createdFolder.name,
-//     parent: createdFolder.parent ? createdFolder.parent.toString() : null,
-//     user: createdFolder.user.toString(),
-//     ancestors: createdFolder.ancestors.map((id) => id.toString()),
-//     createdAt: createdFolder.createdAt,
-//     updatedAt: createdFolder.updatedAt,
-//   };
-
-//   return res
-//     .status(201)
-//     .json(new ApiResponse(201, "Folder created successfully", responseFolder));
-// });
-
-// const createFolder = asyncHandler(async (req, res) => {
-//   const { name, parent = null } = req.body;
-
-//   // Validate required fields
-//   if (!name) {
-//     throw new ApiError(400, "Folder name is required");
-//   }
-
-//   // Check for duplicate folder
-//   const existingFolder = await Folder.findOne({ name, user: req.user._id });
-//   if (existingFolder) {
-//     throw new ApiError(400, "Folder with this name already exists");
-//   }
-
-//   // Convert parent to ObjectId if provided
-//   let parentId = null;
-//   if (parent) {
-//     if (!mongoose.Types.ObjectId.isValid(parent)) {
-//       throw new ApiError(400, "Invalid parent folder ID");
-//     }
-//     parentId = new mongoose.Types.ObjectId(parent);
-//   }
-
-//   // Create folder object
-//   const folder = new Folder({
-//     name,
-//     parent: parentId,
-//     user: req.user._id,
-//     ancestors: parentId ? [parentId] : [],
-//   });
-
-//   // Save folder to database
-//   const createdFolder = await folder.save();
-
-//   if (!createdFolder) {
-//     throw new ApiError(500, "Something went wrong while creating the folder");
-//   }
-
-//   // Convert ObjectIds to strings for the response
-//   const responseFolder = {
-//     _id: createdFolder._id.toString(),
-//     name: createdFolder.name,
-//     parent: createdFolder.parent ? createdFolder.parent.toString() : null,
-//     user: createdFolder.user.toString(),
-//     ancestors: createdFolder.ancestors.map((id) => id.toString()),
-//     createdAt: createdFolder.createdAt,
-//     updatedAt: createdFolder.updatedAt,
-//   };
-
-//   return res
-//     .status(201)
-//     .json(new ApiResponse(201, "Folder created successfully", responseFolder));
-// });
-
-// const createFolder = asyncHandler(async (req, res) => {
-//   const { name, parent = null } = req.body;
-
-//   // Validate required fields
-//   if (!name) {
-//     throw new ApiError(400, "Folder name is required");
-//   }
-
-//   // Check for duplicate folder
-//   const existingFolder = await Folder.findOne({ name, user: req.user._id });
-//   if (existingFolder) {
-//     throw new ApiError(400, "Folder with this name already exists");
-//   }
-
-//   // Convert parent to ObjectId if provided
+//   // Handle parent folder and ancestors
 //   let parentId = null;
 //   let ancestors = [];
 //   if (parent) {
@@ -189,7 +33,6 @@ import mongoose from "mongoose";
 //       throw new ApiError(404, "Parent folder not found");
 //     }
 
-//     // Set ancestors to include all parent folder's ancestors plus itself
 //     ancestors = [...parentFolder.ancestors, parentId];
 //   }
 
@@ -201,17 +44,14 @@ import mongoose from "mongoose";
 //     ancestors,
 //   });
 
-//   // Save folder to database
+//   // Save folder to the database
 //   const createdFolder = await folder.save();
 
-//   if (!createdFolder) {
-//     throw new ApiError(500, "Something went wrong while creating the folder");
-//   }
-
-//   // Convert ObjectIds to strings for the response
+//   // Response object
 //   const responseFolder = {
 //     _id: createdFolder._id.toString(),
 //     name: createdFolder.name,
+//     slug: createdFolder.slug,
 //     parent: createdFolder.parent ? createdFolder.parent.toString() : null,
 //     user: createdFolder.user.toString(),
 //     ancestors: createdFolder.ancestors.map((id) => id.toString()),
@@ -225,7 +65,7 @@ import mongoose from "mongoose";
 // });
 
 const createFolder = asyncHandler(async (req, res) => {
-  const { name, parent = null } = req.body;
+  const { name } = req.body;
 
   // Validate required fields
   if (!name) {
@@ -238,30 +78,10 @@ const createFolder = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Folder with this name already exists");
   }
 
-  // Handle parent folder and ancestors
-  let parentId = null;
-  let ancestors = [];
-  if (parent) {
-    if (!mongoose.Types.ObjectId.isValid(parent)) {
-      throw new ApiError(400, "Invalid parent folder ID");
-    }
-    parentId = new mongoose.ObjectId(parent);
-
-    // Fetch parent folder and its ancestors
-    const parentFolder = await Folder.findById(parentId);
-    if (!parentFolder) {
-      throw new ApiError(404, "Parent folder not found");
-    }
-
-    ancestors = [...parentFolder.ancestors, parentId];
-  }
-
-  // Create folder object
+  // Create folder object (no parent or ancestors)
   const folder = new Folder({
     name,
-    parent: parentId,
     user: req.user._id,
-    ancestors,
   });
 
   // Save folder to the database
@@ -271,10 +91,7 @@ const createFolder = asyncHandler(async (req, res) => {
   const responseFolder = {
     _id: createdFolder._id.toString(),
     name: createdFolder.name,
-    slug: createdFolder.slug,
-    parent: createdFolder.parent ? createdFolder.parent.toString() : null,
     user: createdFolder.user.toString(),
-    ancestors: createdFolder.ancestors.map((id) => id.toString()),
     createdAt: createdFolder.createdAt,
     updatedAt: createdFolder.updatedAt,
   };

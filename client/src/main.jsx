@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import store from "./store/store.js";
 import App from "./App.jsx";
-// import AuthLayout from "./layout/AuthLayout.jsx";
+import AuthLayout from "./layout/AuthLayout.jsx";
 // import Home from "./components/Home"; // Assuming you have a Home component
 import "./index.css";
 import { Login, Register} from "./components/index.js"
@@ -12,6 +12,7 @@ import { Login, Register} from "./components/index.js"
 //Pages
 import Home from "./pages/Home.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
+import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 // import Login from "./pages/login.jsx";
 
 const router = createBrowserRouter([
@@ -23,8 +24,8 @@ const router = createBrowserRouter([
         path: "/",
         element: (
           // <AuthLayout>
-            <Home />
-          // </AuthLayout>    
+          <Home />
+        // </AuthLayout>
         ),
       },
       {
@@ -36,9 +37,18 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path:"/profile",
-        element: <ProfilePage />
-      }
+        path: "/profile",
+        element : (
+          <AuthLayout>
+            <ProfilePage/>
+          </AuthLayout>
+        )
+        
+      },
+      {
+        path: "/terms-and-conditions",
+        element: <TermsAndConditions />
+      },
     ],
   },
 ]);

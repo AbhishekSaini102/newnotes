@@ -41,3 +41,35 @@
   color: #888;
 }
 
+
+/* Hide scrollbar by default */
+.sidebar-container .scrollbar-thin::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+  /* Make it invisible */
+}
+
+/* Show slim scrollbar on hover */
+.sidebar-container:hover .scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+  /* Slim scrollbar width on hover */
+}
+
+.sidebar-container .scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  /* Scrollbar thumb color */
+  border-radius: 0px;
+}
+
+.sidebar-container:hover .scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 148, 148, 0.6);
+  /* Darker scrollbar on hover */
+}
+
+.sidebar-container .scrollbar-thin::-webkit-scrollbar-track {
+  background-color: transparent;
+  /* Hide the track */
+}
+
+
+
