@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const MenuIcon = ({ color, hoverColor }) => {
   const [currentColor, setCurrentColor] = useState(color);
@@ -22,6 +24,11 @@ const MenuIcon = ({ color, hoverColor }) => {
       <circle cx="20" cy="12" r="1"></circle>
     </svg>
   );
+};
+
+MenuIcon.propTypes = {
+  color: PropTypes.string.isRequired,
+  hoverColor: PropTypes.string.isRequired,
 };
 
 export default MenuIcon;

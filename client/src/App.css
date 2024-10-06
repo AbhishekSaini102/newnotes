@@ -41,7 +41,27 @@
   color: #888;
 }
 
+/* Custom scrollbar styles */
+/* ::-webkit-scrollbar {
+  width: 14px;
+  
+} */
 
+::-webkit-scrollbar-track {
+  background:rgb(245, 245, 247);
+  /* Very light background color close to white */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(217, 217, 217);
+  /* Thumb color */
+  /* border-radius: 6px; */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dfdede;
+  /* Thumb color on hover */
+}
 /* Hide scrollbar by default */
 .sidebar-container .scrollbar-thin::-webkit-scrollbar {
   width: 0;
@@ -56,13 +76,13 @@
 }
 
 .sidebar-container .scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(69, 68, 68, 0.3);
   /* Scrollbar thumb color */
   border-radius: 0px;
 }
 
 .sidebar-container:hover .scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: rgba(148, 148, 148, 0.6);
+  background-color: rgba(195, 189, 189, 0.6);
   /* Darker scrollbar on hover */
 }
 
@@ -73,3 +93,10 @@
 
 
 
+.folder-item:hover .menu-button {
+  display: flex;
+}
+
+.menu-button {
+  display: none;
+}

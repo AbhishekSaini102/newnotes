@@ -7,12 +7,14 @@ import App from "./App.jsx";
 import AuthLayout from "./layout/AuthLayout.jsx";
 // import Home from "./components/Home"; // Assuming you have a Home component
 import "./index.css";
-import { Login, Register} from "./components/index.js"
+import { Login, Register } from "./components/index.js";
 
 //Pages
 import Home from "./pages/Home.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import TermsAndConditions from "./pages/TermsAndConditions.jsx";
+import FolderPage from "./pages/FolderPage.jsx";
+// import NotFound from "./pages/NotFound.jsx";
 // import Login from "./pages/login.jsx";
 
 const router = createBrowserRouter([
@@ -23,9 +25,9 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: (
-          // <AuthLayout>
-          <Home />
-        // </AuthLayout>
+          <AuthLayout>
+            <Home />
+          </AuthLayout>
         ),
       },
       {
@@ -38,17 +40,33 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element : (
+        element: (
           <AuthLayout>
-            <ProfilePage/>
+            <ProfilePage />
           </AuthLayout>
-        )
-        
+        ),
       },
       {
         path: "/terms-and-conditions",
-        element: <TermsAndConditions />
+        element: <TermsAndConditions />,
       },
+      {
+        path: "/folder/:folderId",
+        element: (
+          <AuthLayout>
+            <FolderPage />
+          </AuthLayout>
+        ),
+      },
+
+      // {
+      //   path: "*",
+      //   element: (
+      //     <AuthLayout>
+      //       <NotFound />
+      //     </AuthLayout>
+      //   ),
+      // },
     ],
   },
 ]);

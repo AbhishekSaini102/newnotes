@@ -132,13 +132,38 @@ const getFolders = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, "Folders retrieved successfully", folders));
 });
 
+// const getFolder = asyncHandler(async (req, res) => {
+//   const { folderId } = req.params;
+
+//   // Validate folderId
+//   if (!mongoose.Types.ObjectId.isValid(folderId)) {
+//     throw new ApiError(400, "Invalid folder ID");
+//   }
+
+//   // Find folder
+//   const folder = await Folder.findOne({ _id: folderId, user: req.user._id });
+
+//   if (!folder) {
+//     throw new ApiError(404, "Folder not found");
+//   }
+
+//   return res
+//     .status(200)
+//     .json(new ApiResponse(200, "Folder retrieved successfully", folder));
+// });
+
 const getFolder = asyncHandler(async (req, res) => {
   const { folderId } = req.params;
+
+  // console.log("folderId:", folderId); // Log to verify
 
   // Validate folderId
   if (!mongoose.Types.ObjectId.isValid(folderId)) {
     throw new ApiError(400, "Invalid folder ID");
   }
+
+  // Log user ID to ensure it's correct
+  // console.log("User ID:", req.user._id);
 
   // Find folder
   const folder = await Folder.findOne({ _id: folderId, user: req.user._id });

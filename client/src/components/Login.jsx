@@ -216,7 +216,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { userLogin } from "../store/authSlice.js";
+import { userLogin, clearError } from "../store/authSlice.js";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -239,7 +239,8 @@ const Login = () => {
     if (isAuthenticated) {
       navigate("/");
     }
-  }, [isAuthenticated, navigate]);
+    dispatch(clearError());
+  }, [isAuthenticated, navigate, dispatch]);
 
   return (
     <div className="flex justify-center min-h-[calc(90vh-4rem)] bg-white">

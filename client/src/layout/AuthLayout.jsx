@@ -84,9 +84,9 @@ export default function AuthLayout({ children }) {
   }
 
   // Show session expired popup if needed
-  if (showSessionExpiredPopup) {
-    return <h1>Session Expired. Please log in again.</h1>;
-  }
+  // if (showSessionExpiredPopup) {
+  //   return <h1>Session Expired. Please log in again.</h1>;
+  // }
 
   // Render children if authentication is valid
   return <>{children}</>;

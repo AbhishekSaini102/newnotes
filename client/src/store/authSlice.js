@@ -91,6 +91,9 @@ const authSlice = createSlice({
     sessionExpired: (state) => {
       state.showSessionExpiredPopup = true;
     },
+    clearError: (state) => {
+      state.error = null;
+    },
   },
   extraReducers: (builder) => {
     // Login handling
@@ -167,7 +170,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { resetAuthState, sessionExpired } = authSlice.actions;
+export const { resetAuthState, sessionExpired, clearError } = authSlice.actions;
 export default authSlice.reducer;
 
 

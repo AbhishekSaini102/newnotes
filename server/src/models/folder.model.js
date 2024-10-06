@@ -10,7 +10,7 @@ const folderSchema = new mongoose.Schema(
     },
     slug: {
       type: String,
-      unique: true,
+      // unique: true,
     },
     parent: {
       type: mongoose.Schema.Types.ObjectId,

@@ -17,7 +17,7 @@
 
 
 
-import { useState } from "react";
+import PropTypes from "prop-types";
 
 function InputHome({ onInputClick, isCollapsed }) {
   return (
@@ -36,5 +36,10 @@ function InputHome({ onInputClick, isCollapsed }) {
     </div>
   );
 }
+
+InputHome.propTypes = {
+  onInputClick: PropTypes.func.isRequired,
+  isCollapsed: PropTypes.bool.isRequired,
+};
 
 export default InputHome;

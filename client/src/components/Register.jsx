@@ -161,10 +161,10 @@
 // export default Register;
 
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { userRegister } from "../store/authSlice.js";
+import { userRegister, clearError } from "../store/authSlice.js";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -200,6 +200,11 @@ const Register = () => {
       }
     });
   };
+
+  useEffect(() => {
+    // Clear error when the component mounts
+    dispatch(clearError());
+  }, [dispatch]);
 
   return (
     <div className="flex justify-center min-h-[calc(90vh-4rem)] bg-white ">

@@ -17,6 +17,10 @@ export default {
         "apple-notes-sidebar-light": "#f2f2f7",
         "custom-light-gray": "##f5f5f5",
         "custom-light-gray-hover": "#e0e0e0",
+        "newNote-sidebar": "rgb(245, 245, 247);",
+        "custom-white": "#fff",
+        // "new-custom-color": "#f8f9fa",
+        // "new-custom-color": "#e9ecef",
       },
       spacing: {
         custom: "1380px",
@@ -29,12 +33,17 @@ export default {
       },
       width: {
         "custom-width": "16.25rem",
+        "custom-width-second": "15.75rem",
         "custom-width-full": "26rem",
       },
     },
   },
   plugins: [],
 };
+
+
+
+
 
 
 

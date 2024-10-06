@@ -199,12 +199,16 @@ if (isAuthenticated) {
           {/* Header */}
           <HeaderHome
             className={`transition-all duration-300 ${isCollapsed ? "w-full" : "w-full"}`}
+            isCollapsed={isCollapsed}
           />
 
           {/* Main Content */}
           <div className="w-full flex justify-center items-center py-2 px-4">
             <div className="flex-grow flex items-center">
-              <InputHome onInputClick={handleInputClick} />
+              <InputHome
+                onInputClick={handleInputClick}
+                isCollapsed={isCollapsed}
+              />
             </div>
           </div>
 
