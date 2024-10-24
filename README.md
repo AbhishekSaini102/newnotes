@@ -1,6 +1,6 @@
-<div style="display: flex; align-items: center; margin-bottom: 16px;">
-  <img src="client/public/newNotes.png" alt="NewNotes Screenshot" width="35" style="margin-right: 8px;" />
-  <h1 style="margin-top:30px;">NewNotes</h1>
+<div style="display: flex; flex:column, align-items: center; width:auto;">
+  <img src="client/public/newNotes.png" alt="NewNotes Screenshot" width="35" height="35" style="margin-right: 10px;" /> <!-- Adjust margin-right for more space -->
+  <h1 style="margin-top: 0px; height:10px">NewNotes</h1>
 </div>
 
 ## Overview
