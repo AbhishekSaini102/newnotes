@@ -1,4 +1,4 @@
-<table style="border-collapse: collapse; width: 100%;">
+<table style="border-none: collapse; width: 100%;">
   <tr>
     <!-- Image on the left -->
     <td style="border: none; width:auto">
@@ -14,6 +14,20 @@
 ## Overview
 
 **NewNotes** is a powerful note-taking application inspired by popular tools like Notion and Google Keep. It enables users to create, manage, and organize notes efficiently with features such as a rich text editor, folders, tags, images, and location support. Built on the MERN stack (MongoDB, Express, React, Node.js), NewNotes offers a sleek, user-friendly interface tailored for both desktop and mobile users.
+
+## Images
+
+Here are some screenshots of the NewNotes application:
+
+##
+
+![NewNotes Screenshot 1](<client/public/NewNotesReadme(1).png>)
+
+![NewNotes Screenshot 1](<client/public/NewNotesReadme(5).png>)
+
+![NewNotes Screenshot 1](<client/public/NewNotesReadme(4).png>)
+
+![NewNotes Screenshot 1](<client/public/NewNotesReadme(3).png>)
 
 ## Features
 
@@ -53,20 +67,6 @@
 - Ensure you have Node.js and npm installed.
 - A MongoDB instance should be running either locally or in the cloud.
 - Obtain a Google Maps API key for the location feature.
-
-## Images
-
-Here are some screenshots of the NewNotes application:
-##
-
-![NewNotes Screenshot 1](<client/public/NewNotesReadme(1).png>)
-
-![NewNotes Screenshot 1](<client/public/NewNotesReadme(5).png>)
- 
-![NewNotes Screenshot 1](<client/public/NewNotesReadme(4).png>)
-
-![NewNotes Screenshot 1](<client/public/NewNotesReadme(3).png>)
-
 
 ## Conclusion
 
