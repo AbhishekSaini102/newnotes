@@ -76,7 +76,7 @@ const IconLogout = () => (
   </svg>
 );
 
-const ProfileIconRight = ({ isCollapsed }) => {
+const ProfileIconRight = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const user = useSelector((state) => state.auth.user);
   const dropdownRef = useRef(null);
@@ -115,7 +115,7 @@ const ProfileIconRight = ({ isCollapsed }) => {
         onClick={toggleDropdown}
       >
         {user?.avatar ? (
-          <span className=" border-2 border-white rounded-full shadow-sm">
+          <span className="mr-2 border-2 border-white border-opacity-50 rounded-full shadow-sm">
             <img
               src={user.avatar}
               alt="User Avatar"

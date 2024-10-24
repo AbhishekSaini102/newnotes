@@ -31,6 +31,9 @@ export default {
       transitionDuration: {
         700: "700ms",
       },
+      fontFamily: {
+        sans: ["Inter", "system-ui", "sans-serif"],
+      },
       width: {
         "custom-width": "16.25rem",
         "custom-width-second": "15.75rem",
@@ -40,6 +43,7 @@ export default {
   },
   plugins: [],
 };
+
 
 
 
