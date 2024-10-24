@@ -1,15 +1,7 @@
-<table style="border-none: collapse; width: 100%;">
-  <tr>
-    <!-- Image on the left -->
-    <td style="border: none; width:auto">
-      <img src="client/public/newNotes.png" alt="NewNotes Screenshot" width="35"/>
-    </td>
-    <!-- Heading on the right -->
-    <td style="border: none; text-align: left; vertical-align: middle;">
-      <h1 style="margin-top: 8px; margin-bottom: 0;">NewNotes</h1>
-    </td>
-  </tr>
-</table>
+<div style="display: flex; align-items: center; margin-bottom: 16px;">
+  <img src="client/public/newNotes.png" alt="NewNotes Screenshot" width="35" style="margin-right: 8px;" />
+  <h1 style="margin-top:30px;">NewNotes</h1>
+</div>
 
 ## Overview
 
