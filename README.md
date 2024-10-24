@@ -1,7 +1,16 @@
-<div style="display: flex; flex:column, align-items: center; width:auto;">
-  <img src="client/public/newNotes.png" alt="NewNotes Screenshot" width="35" height="35" style="margin-right: 10px;" /> <!-- Adjust margin-right for more space -->
-  <h1 style="margin-top: 0px; height:10px">NewNotes</h1>
-</div>
+<table style="border: none; width: 100%;">
+  <tr>
+    <!-- Image on the left -->
+    <td style="border: none; width:auto">
+      <img src="client/public/newNotes.png" alt="newNotes Screenshot" width="
+      35"/>
+    </td>
+    <!-- Heading on the right -->
+    <td style="border: none; text-align: left; vertical-align: middle;">
+      <h1 style=" margin-top:8px; margin-bottom: 0;">NewNotes</h1>
+    </td>
+  </tr>
+</table>
 
 ## Overview
 
