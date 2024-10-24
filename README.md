@@ -1,12 +1,12 @@
-<table style="border: none; width: 100%;">
+<table style="width: 100%;">
   <tr>
     <!-- Image on the left -->
-    <td style="border: none; width:auto">
+    <td style=" width:auto">
       <img src="client/public/newNotes.png" alt="newNotes Screenshot" width="
       35"/>
     </td>
     <!-- Heading on the right -->
-    <td style="border: none; text-align: left; vertical-align: middle;">
+    <td style=" text-align: left; vertical-align: middle;">
       <h1 style=" margin-top:8px; margin-bottom: 0;">NewNotes</h1>
     </td>
   </tr>
